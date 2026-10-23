@@ -1,7 +1,7 @@
 import React,{useCallback,useEffect,useState} from 'react';
 import {Link,useNavigate,useLocation} from 'react-router-dom';
 import {supabase} from './lib/supabase';
-import {LayoutDashboard,Users,UserCheck,ClipboardList,CalendarDays,Wallet,Star,ShieldCheck,Settings,LogOut,Menu,X,Search,Bell,Link2,Copy,Plus,Check,ShieldX,Clock3,RefreshCcw,ChartNoAxesColumnIncreasing,MapPin,ChevronRight,ExternalLink,UserRound,LockKeyhole,AlertCircle} from 'lucide-react';
+import {LayoutDashboard,Users,UserCheck,ClipboardList,CalendarDays,Wallet,Star,ShieldCheck,Settings,LogOut,Menu,X,Search,Bell,Link2,Copy,Plus,Check,CheckCircle,ShieldX,Clock3,RefreshCcw,ChartNoAxesColumnIncreasing,MapPin,ChevronRight,ExternalLink,UserRound,LockKeyhole,AlertCircle} from 'lucide-react';
 import './dashboard.css';
 type UserProfile={id:string;full_name:string;email:string|null;phone:string|null;role:'customer'|'technician'|'admin';is_active:boolean;created_at:string};
 type TechRow={id:string;approval_status:'pending'|'approved'|'rejected';is_online:boolean;rating_avg:number;rating_count:number;wallet_balance:number};
