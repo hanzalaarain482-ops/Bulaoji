@@ -1,7 +1,7 @@
 import React,{useCallback,useEffect,useMemo,useState} from 'react';
 import {Link,useLocation,useNavigate,useParams} from 'react-router-dom';
 import {supabase} from './lib/supabase';
-import {Home,CalendarDays,MessageCircle,UserRound,LogOut,Bell,MapPin,Search,Car,Bike,Zap,Droplets,Paintbrush,Hammer,Wind,Sparkles,KeyRound,Monitor,Plus,ArrowLeft,ArrowRight,Clock3,CheckCircle,Star,Phone,Wallet,RefreshCcw,ShieldCheck,Navigation,LockKeyhole,ChevronRight,AlertCircle} from 'lucide-react';
+import {Home,CalendarDays,MessageCircle,UserRound,LogOut,Bell,MapPin,Search,Car,Bike,Zap,Droplets,Paintbrush,Hammer,Wind,Sparkles,KeyRound,Monitor,Plus,ArrowLeft,ArrowRight,Clock3,CheckCircle,Star,Phone,Wallet,RefreshCcw,ShieldCheck,Navigation,Wrench,LockKeyhole,ChevronRight,AlertCircle} from 'lucide-react';
 import './marketplace.css';
 type Category={id:string,name:string,active:boolean};
 type Service={id:string,category_id:string,name:string,base_price:number};
@@ -14,7 +14,7 @@ const fallbackNames=['Car Services','Bike Services','Electrician','Plumber','Pai
 const money=(n:number)=>'Rs. '+Number(n).toLocaleString('en-PK');
 const date=(n:string)=>new Date(n).toLocaleString('en-PK',{dateStyle:'medium',timeStyle:'short'});
 const activeStatuses=['confirmed','on_the_way','arrived','in_progress'];
-const label=(s:string)=>s.replaceAll('_',' ').replace(/\b\w/g,x=>x.toUpperCase());
+const label=(s:string)=>s.replace(/_/g,' ').replace(/\b\w/g,(x:string)=>x.toUpperCase());
 function Pill({s}:{s:string}){return <span className={'mk-pill '+(s==='completed'||s==='confirmed'?'success':s==='cancelled'?'danger':s==='searching'?'amber':'blue')}>{label(s)}</span>}
 function Loader(){return <div className="mk-state">Loading BulaoJi…</div>}
 function MapHint(){return <div className="mk-map"><MapPin size={35}/><b>Karachi, Pakistan</b><small>Live map will be connected with verified technician GPS updates.</small></div>}
