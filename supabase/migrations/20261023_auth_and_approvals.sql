@@ -166,6 +166,8 @@ drop policy if exists audit_admin_read on public.admin_audit_logs;
 create policy audit_admin_read on public.admin_audit_logs for select to authenticated using(public.is_admin());
 
 revoke all on public.profiles, public.technician_profiles, public.technician_invitations, public.admin_audit_logs from anon;
+revoke insert,update,delete on public.profiles, public.technician_profiles, public.technician_invitations, public.admin_audit_logs from authenticated;
+
 grant select on public.profiles, public.technician_profiles, public.technician_invitations, public.admin_audit_logs to authenticated;
 revoke all on function public.issue_technician_invite(int),public.admin_review_technician(uuid,boolean,text),public.admin_set_account_active(uuid,boolean),public.validate_technician_invite(text) from public;
 grant execute on function public.issue_technician_invite(int),public.admin_review_technician(uuid,boolean,text),public.admin_set_account_active(uuid,boolean) to authenticated;
