@@ -1,6 +1,7 @@
 -- BulaoJi Phase 2: unified auth, role-based access, technician invitations and admin approval.
 -- Execute in Supabase SQL editor before using login/signup. Requires Supabase Auth.
-create extension if not exists pgcrypto;
+create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
 
 do $$ begin
  create type public.bj_role as enum('customer','technician','admin');
