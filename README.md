@@ -52,3 +52,10 @@ Customer bookings and offers, technician live jobs, GPS, payment capture, multi-
 
 ## Quality status
 GitHub code is uploaded, but a production build, SQL migration run against your Supabase project and real multi-user end-to-end testing have **not** been verified in this session.
+
+## New technician application fields & Vercel update
+Run `supabase/migrations/20261023_technician_application.sql` **after** the auth migration. The private `/reg.tec?token=...` form now includes full name, phone, city, area, address, 11 skill categories, experience, availability and a professional bio. Super Admin sees these details before approval.
+
+**Important: Vercel deployments do not instantly change just because GitHub code has been pushed.** In the Vercel dashboard, make sure this exact repository `hanzalaarain482-ops/Bulaoji` and branch `main` are connected, and redeploy the latest commit. A `vercel.json` SPA rewrite handles direct navigation to `/signup`, `/login`, and `/reg.tec`. If the old signup still shows Customer/Technician tabs, you are viewing an older deployment, a different GitHub repo, or a cached version.
+
+**Production caution:** No cloud migrations, Vercel deployment or end-to-end authentication test has been executed by this assistant. The super admin dashboard and invitation approval flows depend on database configuration. Private admin route authorization is verified against the Supabase profile role; customer/technician booking functionality remains in development.
